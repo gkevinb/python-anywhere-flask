@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.7.0
 
 RUN mkdir app
 ADD ./requirements.txt /app

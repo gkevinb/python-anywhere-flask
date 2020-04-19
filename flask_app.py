@@ -13,5 +13,5 @@ def health():
     return 'This will be the health page.'
 
 
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True)
