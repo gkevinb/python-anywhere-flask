@@ -14,3 +14,12 @@ To shut it down, CTRL + c but also run following to make sure it stopped
 ```
 docker-compose down
 ```
+
+## Pythonanywhere
+
+https://www.pythonanywhere.com/batteries_included/
+
+
+### Virtualenvs
+
+https://help.pythonanywhere.com/pages/RebuildingVirtualenvs/
