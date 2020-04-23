@@ -1,1 +1,3 @@
 Flask
+flask_sqlalchemy
+pymysql
