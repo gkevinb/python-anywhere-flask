@@ -25,3 +25,17 @@ https://www.pythonanywhere.com/batteries_included/
 ### Virtualenvs
 
 https://help.pythonanywhere.com/pages/RebuildingVirtualenvs/
+
+## SQL and Databases
+
+https://peewee.readthedocs.io/en/latest/index.html
+
+https://hackersandslackers.com/python-database-management-sqlalchemy/
+
+https://leportella.com/sqlalchemy-tutorial.html
+
+https://blog.pythonanywhere.com/121/
+
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
+
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
