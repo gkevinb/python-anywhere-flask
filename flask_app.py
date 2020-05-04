@@ -7,11 +7,29 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config["DEBUG"] = True
 
-SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{username}:{password}@{hostname}/{databasename}".format(
-    username="root",
-    password="admin",
-    hostname="db123",
-    databasename="db",
+hostname = socket.gethostname()
+
+if hostname == "blue-liveweb2":
+    sql_config = {
+        "username": "gkevinb",
+        "password": "64zd32xk",
+        "hostname": "gkevinb.mysql.pythonanywhere-services.com",
+        "databasename": "gkevinb$flask"
+    }
+
+if hostname == "flask607":
+    sql_config = {
+        "username": "root",
+        "password": "admin",
+        "hostname": "db123",
+        "databasename": "db"
+    }
+
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+    username=sql_config.get("username"),
+    password=sql_config.get("password"),
+    hostname=sql_config.get("hostname"),
+    databasename=sql_config.get("databasename"),
 )
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
@@ -20,7 +38,6 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 class Person(db.Model):
-
     __tablename__ = "person"
 
     id = db.Column(db.Integer, primary_key=True)

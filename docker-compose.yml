@@ -2,6 +2,8 @@ version: '3.3'
 
 services:
   app:
+    container_name: flask606
+    hostname: flask607
     restart: always
     build: ./
     links:
