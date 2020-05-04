@@ -12,6 +12,7 @@ services:
       - "5000:5000"
   db:
     image: mysql:5.7
+    hostname: db222flask
     container_name: db123
     restart: always
     environment:
