@@ -30,6 +30,12 @@ Don't use custom virtual envs, if you want to use the packages in [batteries_inc
 
 https://help.pythonanywhere.com/pages/RebuildingVirtualenvs/
 
+## Vue JS Integration
+
+https://dev.to/michaelbukachi/flask-vue-js-integration-tutorial-2g90
+
+https://testdriven.io/blog/developing-a-single-page-app-with-flask-and-vuejs/
+
 ## SQL and Databases
 
 To run SQL commands go to the Databases tab and start a console on the database you want to edit. Then you can run any SQL queries you create locally on SQL Workbench, just copy and paste the exact commands and it runs exactly the same.
@@ -47,4 +53,13 @@ https://blog.pythonanywhere.com/121/
 
 https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
 
-https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure
+
+
+## Testing
+
+https://medium.com/swlh/automate-python-testing-with-github-actions-7926b5d8a865
+
+## CSS
+
+https://pythonhow.com/add-css-to-flask-website/
