@@ -28,6 +28,21 @@ Don't use custom virtual envs, if you want to use the packages in [batteries_inc
 
 ### Virtualenvs
 
+Virutal environment (venv) found in `server/venv/`
+
+Activate and deactivate venv
+
+```bash
+source server/venv/bin/activate
+deactivate
+```
+
+Install packages from `requirements.txt` into venv. Make sure venv is active.
+
+```bash
+pip install -r server/src/requirements.txt
+```
+
 https://help.pythonanywhere.com/pages/RebuildingVirtualenvs/
 
 ## Vue JS Integration
