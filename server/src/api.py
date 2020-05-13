@@ -1,8 +1,7 @@
 import sys
 import socket
-from flask import Blueprint
+from flask import Blueprint, current_app
 from models import Person
-import config
 
 api_blueprint = Blueprint('api', __name__)
 
@@ -15,4 +14,4 @@ def hello_world():
 
 @api_blueprint.route('/health')
 def health():
-    return f"This will be the health page. {config.load('HOST')}, {config.load('HOST_MACHINE')}"
+    return f"This will be the health page. {current_app.config['HOST']}, {current_app.config['HOST_MACHINE']}"

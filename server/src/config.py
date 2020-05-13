@@ -1,28 +1,35 @@
-import socket
+def format_database_uri(db_username, db_password, db_hostname, db_name):
+    return "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+        username=db_username,
+        password=db_password,
+        hostname=db_hostname,
+        databasename=db_name,
+    )
 
-config = {
-    'DEV': {
-        'HOST_MACHINE': "flask607",
-        'HOST': "http://0.0.0.0:5000/",
-        "DB_USERNAME": "root",
-        "DB_PASSWORD": "admin",
-        "DB_HOSTNAME": "db123",
-        "DB_NAME": "db"
-    },
-    'PROD': {
-        'HOST_MACHINE': "blue-liveweb2",
-        'HOST': "https://gkevinb.pythonanywhere.com/",
-        "DB_USERNAME": "gkevinb",
-        "DB_PASSWORD": "64zd32xk",
-        "DB_HOSTNAME": "gkevinb.mysql.pythonanywhere-services.com",
-        "DB_NAME": "gkevinb$flask"
-    }
-}
 
-def get_env_config():
-    for (_, value) in config.items():
-        if value.get('HOST_MACHINE') == socket.gethostname():
-            return value
+class Config(object):
+    DEBUG = True
+    SQLALCHEMY_POOL_RECYCLE = 299
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-def load(variable):
-    return get_env_config().get(variable)
+
+class DevConfig(Config):
+    CONFIG_NAME = "config.DevConfig"
+    HOST_MACHINE = "flask607"
+    HOST = "http://0.0.0.0:5000/"
+    DB_USERNAME = "root"
+    DB_PASSWORD = "admin"
+    DB_HOSTNAME = "db123"
+    DB_NAME = "db"
+    SQLALCHEMY_DATABASE_URI = format_database_uri(DB_USERNAME, DB_PASSWORD, DB_HOSTNAME, DB_NAME)
+
+
+class ProdConfig(Config):
+    CONFIG_NAME = "config.ProdConfig"
+    HOST_MACHINE = "blue-liveweb2"
+    HOST = "https://gkevinb.pythonanywhere.com/"
+    DB_USERNAME = "gkevinb"
+    DB_PASSWORD = "64zd32xk"
+    DB_HOSTNAME = "gkevinb.mysql.pythonanywhere-services.com"
+    DB_NAME = "gkevinb$flask"
+    SQLALCHEMY_DATABASE_URI = format_database_uri(DB_USERNAME, DB_PASSWORD, DB_HOSTNAME, DB_NAME)
