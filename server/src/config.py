@@ -1,12 +1,3 @@
-def format_database_uri(db_username, db_password, db_hostname, db_name):
-    return "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-        username=db_username,
-        password=db_password,
-        hostname=db_hostname,
-        databasename=db_name,
-    )
-
-
 class Config(object):
     DEBUG = True
     SQLALCHEMY_POOL_RECYCLE = 299
@@ -21,7 +12,7 @@ class DevConfig(Config):
     DB_PASSWORD = "admin"
     DB_HOSTNAME = "db123"
     DB_NAME = "db"
-    SQLALCHEMY_DATABASE_URI = format_database_uri(DB_USERNAME, DB_PASSWORD, DB_HOSTNAME, DB_NAME)
+    SQLALCHEMY_DATABASE_URI = f"mysql+mysqlconnector://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOSTNAME}/{DB_NAME}"
 
 
 class ProdConfig(Config):
@@ -32,4 +23,4 @@ class ProdConfig(Config):
     DB_PASSWORD = "64zd32xk"
     DB_HOSTNAME = "gkevinb.mysql.pythonanywhere-services.com"
     DB_NAME = "gkevinb$flask"
-    SQLALCHEMY_DATABASE_URI = format_database_uri(DB_USERNAME, DB_PASSWORD, DB_HOSTNAME, DB_NAME)
+    SQLALCHEMY_DATABASE_URI = f"mysql+mysqlconnector://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOSTNAME}/{DB_NAME}"
