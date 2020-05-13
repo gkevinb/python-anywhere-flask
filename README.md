@@ -57,6 +57,8 @@ https://flask.palletsprojects.com/en/1.1.x/patterns/appfactories/
 
 https://flask.palletsprojects.com/en/1.1.x/blueprints/#blueprints
 
+https://hackersandslackers.com/configure-flask-applications/
+
 ## SQL and Databases
 
 To run SQL commands go to the Databases tab and start a console on the database you want to edit. Then you can run any SQL queries you create locally on SQL Workbench, just copy and paste the exact commands and it runs exactly the same.

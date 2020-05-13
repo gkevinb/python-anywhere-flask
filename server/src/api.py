@@ -1,7 +1,7 @@
 import sys
 import socket
 from flask import Blueprint, current_app
-from models import Person
+from models import Person, Quote
 
 api_blueprint = Blueprint('api', __name__)
 
@@ -15,3 +15,9 @@ def hello_world():
 @api_blueprint.route('/health')
 def health():
     return f"This will be the health page. {current_app.config['HOST']}, {current_app.config['HOST_MACHINE']}"
+
+
+@api_blueprint.route('/quote/first')
+def first_quote():
+    quote1 = Quote.query.first()
+    return f"The first quote is: '{quote1.body}' by {quote1.author} in {quote1.category}!"

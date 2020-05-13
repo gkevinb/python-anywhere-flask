@@ -9,4 +9,4 @@ create table person (
 insert into person (name) value ("Joe");
 insert into person (name) value ("Bob");
 
-select * from person
+select * from person;
