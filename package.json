@@ -1,0 +1,24 @@
+{
+  "name": "python-anywhere-flask",
+  "version": "1.0.0",
+  "description": "Link: https://gkevinb.pythonanywhere.com/",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose build && docker-compose up",
+    "stop": "docker-compose down",
+    "remove-venv": "rm -rf server/venv",
+    "build-venv": "python3 -m venv server/venv",
+    "install-venv": "pip install -r server/src/requirements.txt",
+    "rebuild-venv": "rm -rf server/venv && python3 -m venv server/venv && source server/venv/bin/activate && pip install -r server/src/requirements.txt && deactivate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gkevinb/python-anywhere-flask.git"
+  },
+  "author": "Gabor Kevin Barta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gkevinb/python-anywhere-flask/issues"
+  },
+  "homepage": "https://gkevinb.pythonanywhere.com/"
+}
