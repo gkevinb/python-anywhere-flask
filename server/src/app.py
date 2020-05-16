@@ -1,4 +1,5 @@
 import socket
+import logging
 from flask import Flask
 from config import DevConfig
 from config import ProdConfig
@@ -29,3 +30,5 @@ app = create_app(get_config())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
+    app.logger = logging.getLogger(__name__)
+    app.logger.setLevel(logging.DEBUG)

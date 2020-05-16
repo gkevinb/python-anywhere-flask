@@ -20,3 +20,13 @@ class Quote(db.Model):
     category = db.Column(db.String(255), nullable=False)
     subcategory = db.Column(db.String(255), nullable=True)
     numeral = db.Column(db.String(255), nullable=True)
+
+    def to_json(self):
+        return {
+            "id": self.id,
+            "body": self.body,
+            "author": self.author,
+            "category": self.category,
+            "subcategory": self.subcategory,
+            "numeral": self.numeral
+        }

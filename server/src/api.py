@@ -1,6 +1,6 @@
 import sys
 import socket
-from flask import Blueprint, current_app
+from flask import Blueprint, current_app, jsonify
 from models import Person, Quote
 
 api_blueprint = Blueprint('api', __name__)
@@ -19,5 +19,13 @@ def health():
 
 @api_blueprint.route('/quote/first')
 def first_quote():
+    current_app.logger.info("Called quote/first API endpoint")
     quote1 = Quote.query.first()
-    return f"The first quote is: '{quote1.body}' by {quote1.author} in {quote1.category}!"
+    return jsonify(quote1.to_json())
+
+
+@api_blueprint.route('/quote/<id>')
+def id_quote(id):
+    current_app.logger.info("Called quote/<id> API endpoint")
+    quote1 = Quote.query.get(id)
+    return jsonify(quote1.to_json())
