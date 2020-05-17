@@ -1,4 +1,4 @@
-class Config(object):
+class Config:
     DEBUG = True
     SQLALCHEMY_POOL_RECYCLE = 299
     SQLALCHEMY_TRACK_MODIFICATIONS = False

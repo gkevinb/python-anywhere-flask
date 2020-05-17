@@ -65,7 +65,6 @@ To run SQL commands go to the Databases tab and start a console on the database 
 
 Look into way of running not just individual commands but entire scripts after getting better at SQL.
 
-
 https://peewee.readthedocs.io/en/latest/index.html
 
 https://hackersandslackers.com/python-database-management-sqlalchemy/
@@ -78,6 +77,7 @@ https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
 
 https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure
 
+https://riptutorial.com/sqlalchemy/example/6614/converting-a-query-result-to-dict
 
 ## Testing
 

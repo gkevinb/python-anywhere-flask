@@ -10,6 +10,8 @@ services:
       - db
     ports:
       - "5000:5000"
+    volumes: ['./server/src:/app']
+    # To auto-reload new code from server/src to Docker app
   db:
     image: mysql:5.7
     hostname: db222flask
