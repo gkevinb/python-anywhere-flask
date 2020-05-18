@@ -7,7 +7,7 @@ from quote_service import QuoteService
 api_blueprint = Blueprint('api', __name__)
 
 
-@api_blueprint.route('/')
+@api_blueprint.route('/info')
 def hello_world():
     joe = Person.query.first()
     return 'Hello world, Flask: {0}! on {1} and db: {2}!'.format(sys.version, socket.gethostname(), joe.name)
