@@ -38,8 +38,8 @@ def first_quote():
 def id_quote(id):
     current_app.logger.info(f"Called quote/{id} API endpoint")
     result = QuoteService().get_id(id)
-
-    return jsonify(result) if result else jsonify(), 404
+    current_app.logger.info(f"Result: {result} API endpoint")
+    return jsonify(result) if result else (jsonify(), 404)
 
 
 # TODO: Need error handling

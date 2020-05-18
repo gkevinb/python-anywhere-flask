@@ -2,3 +2,4 @@ Flask
 flask_sqlalchemy
 mysql-connector-python
 flake8
+flask-cors
