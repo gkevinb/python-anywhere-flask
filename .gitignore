@@ -7,7 +7,7 @@ server/venv
 # from Vue CLI .gitignore
 .DS_Store
 node_modules
-/dist
+client/dist
 
 # local env files
 .env.local
