@@ -10,7 +10,7 @@ class QuoteService:
         return [quote.to_dict() for quote in quotes]
 
     def get_first(self):
-        return self.Quote.query.first()
+        return self.Quote.query.first().to_dict()
 
     def get_id(self, id):
         quote = Quote.query.get(id)
