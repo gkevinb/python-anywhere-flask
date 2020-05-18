@@ -20,8 +20,7 @@ export default {
     },
     created() {
         let API = axios.create({
-            baseURL: "http://0.0.0.0:5000/"
-            // baseURL: "https://gkevinb.pythonanywhere.com/"
+            baseURL: process.env.VUE_APP_BACKEND_HOST
         });
         /* Note: GET is hardcoded, for now, since it is the only type of request made */
         API.get("quote/1").then(response => {
