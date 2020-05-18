@@ -6,10 +6,11 @@
   "scripts": {
     "start": "docker-compose build && docker-compose up",
     "stop": "docker-compose down",
+    "serve-client": "(cd client ; npm run serve)",
     "remove-venv": "rm -rf server/venv",
     "build-venv": "python3 -m venv server/venv",
-    "install-venv": "pip install -r server/src/requirements.txt",
-    "rebuild-venv": "rm -rf server/venv && python3 -m venv server/venv && source server/venv/bin/activate && pip install -r server/src/requirements.txt && deactivate"
+    "install-venv": "pip install -r server/requirements.txt",
+    "rebuild-venv": "rm -rf server/venv && python3 -m venv server/venv && source server/venv/bin/activate && pip install -r server/requirements.txt && deactivate"
   },
   "repository": {
     "type": "git",

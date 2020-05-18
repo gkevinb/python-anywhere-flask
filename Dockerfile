@@ -2,6 +2,8 @@ FROM python:3.7.0
 
 RUN mkdir app
 ADD server/src /app
+
+ADD server/requirements.txt /app/requirements.txt
 # Sets the working directory for following COPY and CMD instructions
 # Notice we haven’t created a directory by this name - this instruction 
 # creates a directory with this name if it doesn’t exist
