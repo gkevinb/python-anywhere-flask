@@ -1,7 +1,6 @@
 import socket
 import logging
 from flask import Flask
-from flask_cors import CORS
 from config import DevConfig
 from config import ProdConfig
 
@@ -10,7 +9,9 @@ def create_app(current_config):
     app = Flask(__name__)
     app.config.from_object(current_config)
 
-    CORS(app, resources={r"/quote/*": {"origins": "*"}})
+    if app.config["CONFIG_NAME"] == "config.DevConfig":
+        from flask_cors import CORS
+        CORS(app, resources={r"/quote/*": {"origins": "*"}})
 
     from models import db
     db.init_app(app)
