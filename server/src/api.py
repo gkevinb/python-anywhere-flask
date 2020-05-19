@@ -1,10 +1,15 @@
 import sys
 import socket
-from flask import Blueprint, current_app, jsonify
+from flask import Blueprint, current_app, jsonify, redirect
 from models import Person, Quote
 from quote_service import QuoteService
 
 api_blueprint = Blueprint('api', __name__)
+
+
+@api_blueprint.route('/')
+def index():
+    return redirect(current_app.config.get("WEB_HOST"), code=301)
 
 
 @api_blueprint.route('/info')
