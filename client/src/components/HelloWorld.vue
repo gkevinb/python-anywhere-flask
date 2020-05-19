@@ -1,7 +1,8 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
-        <h4>{{ firstQuote.body }}</h4>
+        <h3>{{ quote.body }}</h3>
+        <h4>{{ quote.author }}</h4>
     </div>
 </template>
 
@@ -15,7 +16,7 @@ export default {
     },
     data() {
         return {
-            firstQuote: {}
+            quote: {}
         };
     },
     created() {
@@ -23,8 +24,8 @@ export default {
             baseURL: process.env.VUE_APP_BACKEND_HOST
         });
         /* Note: GET is hardcoded, for now, since it is the only type of request made */
-        API.get("quote/1").then(response => {
-            this.firstQuote = response.data;
+        API.get("quote/random").then(response => {
+            this.quote = response.data;
         });
     }
 };

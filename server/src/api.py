@@ -47,6 +47,14 @@ def id_quote(id):
     return jsonify(result) if result else (jsonify(), 404)
 
 
+@api_blueprint.route('/quote/random')
+def random_quote():
+    current_app.logger.info("Called quote/random API endpoint")
+    result = QuoteService().get_random()
+    current_app.logger.info(f"Result: {result} API endpoint")
+    return jsonify(result)
+
+
 # TODO: Need error handling
 @api_blueprint.route('/quote/<string:author>')
 def author_quote(author):
