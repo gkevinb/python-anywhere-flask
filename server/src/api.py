@@ -14,8 +14,7 @@ def index():
 
 @api_blueprint.route('/info')
 def hello_world():
-    joe = Person.query.first()
-    return 'Hello world, Flask: {0}! on {1} and db: {2}!'.format(sys.version, socket.gethostname(), joe.name)
+    return 'Hello world, Flask: {0}! on {1}!'.format(sys.version, socket.gethostname())
 
 
 @api_blueprint.route('/health')

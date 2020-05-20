@@ -21,6 +21,9 @@ def create_app(current_config):
 
 
 def get_config():
+    from dotenv import load_dotenv, find_dotenv
+    load_dotenv(find_dotenv())
+
     if socket.gethostname() == DevConfig.HOST_MACHINE:
         return DevConfig.CONFIG_NAME
     if socket.gethostname() == ProdConfig.HOST_MACHINE:
