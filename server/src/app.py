@@ -8,9 +8,8 @@ def create_app(current_config):
     app = Flask(__name__)
     app.config.from_object(current_config)
 
-    if app.config["CONFIG_NAME"] == "config.DevConfig":
-        from flask_cors import CORS
-        CORS(app, resources={r"/quote/*": {"origins": "*"}})
+    from flask_cors import CORS
+    CORS(app, resources={r"/quote/*": {"origins": "*"}})
 
     from models import db
     db.init_app(app)
