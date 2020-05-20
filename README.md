@@ -45,6 +45,8 @@ pip install -r server/src/requirements.txt
 
 https://help.pythonanywhere.com/pages/RebuildingVirtualenvs/
 
+https://help.pythonanywhere.com/pages/Virtualenvs/
+
 ## Vue JS Integration
 
 https://dev.to/michaelbukachi/flask-vue-js-integration-tutorial-2g90

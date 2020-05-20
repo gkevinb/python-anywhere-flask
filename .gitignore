@@ -3,11 +3,10 @@ __pycache__
 .vscode
 server/venv
 
-
-# from Vue CLI .gitignore
-.DS_Store
-node_modules
-client/dist
+# env files
+.env
+.env.development
+.env.production
 
 # local env files
 .env.local
@@ -26,3 +25,8 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# from Vue CLI .gitignore
+.DS_Store
+node_modules
+client/dist

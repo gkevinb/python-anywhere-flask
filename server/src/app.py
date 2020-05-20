@@ -1,8 +1,7 @@
 import socket
 import logging
 from flask import Flask
-from config import DevConfig
-from config import ProdConfig
+from config import DevConfig, ProdConfig
 
 
 def create_app(current_config):

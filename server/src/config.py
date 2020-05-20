@@ -1,3 +1,10 @@
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+
 class Config:
     DEBUG = True
     SQLALCHEMY_POOL_RECYCLE = 299
@@ -6,23 +13,23 @@ class Config:
 
 class DevConfig(Config):
     CONFIG_NAME = "config.DevConfig"
-    HOST_MACHINE = "flask607"
-    HOST = "http://0.0.0.0:5000/"
-    WEB_HOST = "http://localhost:8080/"
-    DB_USERNAME = "root"
-    DB_PASSWORD = "admin"
-    DB_HOSTNAME = "db123"
-    DB_NAME = "db"
+    HOST_MACHINE = os.getenv("DEV_HOST_MACHINE")
+    HOST = os.getenv("DEV_HOST")
+    WEB_HOST = os.getenv("DEV_WEB_HOST")
+    DB_USERNAME = os.getenv("DEV_DB_USERNAME")
+    DB_PASSWORD = os.getenv("DEV_DB_PASSWORD")
+    DB_HOSTNAME = os.getenv("DEV_DB_HOSTNAME")
+    DB_NAME = os.getenv("DEV_DB_NAME")
     SQLALCHEMY_DATABASE_URI = f"mysql+mysqlconnector://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOSTNAME}/{DB_NAME}"
 
 
 class ProdConfig(Config):
     CONFIG_NAME = "config.ProdConfig"
-    HOST_MACHINE = "blue-liveweb2"
-    HOST = "https://gkevinb.pythonanywhere.com/"
-    WEB_HOST = "https://gkevinb.pythonanywhere.com/index.html"
-    DB_USERNAME = "gkevinb"
-    DB_PASSWORD = "64zd32xk"
-    DB_HOSTNAME = "gkevinb.mysql.pythonanywhere-services.com"
-    DB_NAME = "gkevinb$flask"
+    HOST_MACHINE = os.getenv("PROD_HOST_MACHINE")
+    HOST = os.getenv("PROD_HOST")
+    WEB_HOST = os.getenv("PROD_WEB_HOST")
+    DB_USERNAME = os.getenv("PROD_DB_USERNAME")
+    DB_PASSWORD = os.getenv("PROD_DB_PASSWORD")
+    DB_HOSTNAME = os.getenv("PROD_DB_HOSTNAME")
+    DB_NAME = os.getenv("PROD_DB_NAME")
     SQLALCHEMY_DATABASE_URI = f"mysql+mysqlconnector://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOSTNAME}/{DB_NAME}"
