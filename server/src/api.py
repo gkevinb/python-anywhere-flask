@@ -1,7 +1,7 @@
 import sys
 import socket
 from flask import Blueprint, current_app, jsonify, redirect
-from models import Person, Quote
+from models import Quote
 from quote_service import QuoteService
 
 api_blueprint = Blueprint('api', __name__)

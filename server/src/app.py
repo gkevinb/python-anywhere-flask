@@ -1,4 +1,5 @@
 import socket
+import os
 import logging
 from flask import Flask
 from config import DevConfig, ProdConfig
@@ -21,8 +22,9 @@ def create_app(current_config):
 
 
 def get_config():
-    from dotenv import load_dotenv, find_dotenv
-    load_dotenv(find_dotenv())
+    from dotenv import load_dotenv
+    dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+    load_dotenv(dotenv_path)
 
     if socket.gethostname() == DevConfig.HOST_MACHINE:
         return DevConfig.CONFIG_NAME
