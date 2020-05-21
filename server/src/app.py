@@ -11,7 +11,7 @@ def create_app(current_config):
     from flask_cors import CORS
     CORS(app, resources={r"/quote/*": {"origins": "*"}})
 
-    from models import db
+    from models.model import db
     db.init_app(app)
 
     from blueprints.quote import quote

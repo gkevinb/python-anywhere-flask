@@ -1,5 +1,5 @@
 import random
-from models import Quote
+from models.model import Quote
 
 
 class QuoteService:

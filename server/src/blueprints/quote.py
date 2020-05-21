@@ -1,6 +1,6 @@
 from flask import Blueprint, current_app, jsonify
-from models import Quote
-from quote_service import QuoteService
+from models.model import Quote
+from services.quote_service import QuoteService
 
 quote = Blueprint('quote', __name__, url_prefix='/quote')
 

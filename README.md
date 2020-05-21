@@ -74,7 +74,29 @@ https://hackersandslackers.com/configure-flask-applications/
 
 ## SQL and Databases
 
+### Command line tool
+
 To run SQL commands go to the Databases tab and start a console on the database you want to edit. Then you can run any SQL queries you create locally on SQL Workbench, just copy and paste the exact commands and it runs exactly the same.
+
+In the SQL command line, `mysql>`, you can run some shell commands `ls` and `pwd`. You just have to have the word `system` in front of them as shown below.
+
+```bash
+system ls
+```
+
+```bash
+system pwd
+```
+
+To run a SQL script you have to run the `source` command and use the path to the script as the argument.
+
+For example.
+
+```bash
+source mysite/sql-scripts/create_quotes.sql
+```
+
+
 
 Look into way of running not just individual commands but entire scripts after getting better at SQL.
 
