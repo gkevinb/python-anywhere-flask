@@ -4,4 +4,3 @@ mysql-connector-python
 flake8
 flask-cors
 python-dotenv
-mysqlclient
