@@ -50,7 +50,11 @@ https://help.pythonanywhere.com/pages/Virtualenvs/
 
 ## Environmental Variables
 
+All the environmental variables are now loaded from designated `.env` files which are not tracked by the repo.
+
 ### Pythonanywhere
+
+In order to load for `.env` file on pythonanywhere.com, you must edit `wsgi.py` file as shown in the link below.
 
 https://www.pythonanywhere.com/forums/topic/14207/
 

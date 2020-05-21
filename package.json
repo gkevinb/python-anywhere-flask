@@ -4,7 +4,8 @@
   "description": "Link: https://gkevinb.pythonanywhere.com/",
   "main": "index.js",
   "scripts": {
-    "start": "docker-compose build && docker-compose up",
+    "start": "docker-compose up",
+    "build-start": "docker-compose build && docker-compose up",
     "stop": "docker-compose down",
     "build-client": "(cd client ; npm run build)",
     "serve-client": "(cd client ; npm run serve)",

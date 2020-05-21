@@ -1,28 +1,11 @@
-import sys
-import socket
-from flask import Blueprint, current_app, jsonify, redirect
+from flask import Blueprint, current_app, jsonify
 from models import Quote
 from quote_service import QuoteService
 
-api_blueprint = Blueprint('api', __name__)
+quote = Blueprint('quote', __name__, url_prefix='/quote')
 
 
-@api_blueprint.route('/')
-def index():
-    return redirect(current_app.config.get("WEB_HOST"), code=301)
-
-
-@api_blueprint.route('/info')
-def hello_world():
-    return 'Hello world, Flask: {0}! on {1}!'.format(sys.version, socket.gethostname())
-
-
-@api_blueprint.route('/health')
-def health():
-    return f"This is the health page. {current_app.config['HOST']}, {current_app.config['HOST_MACHINE']}"
-
-
-@api_blueprint.route('/quote')
+@quote.route('/')
 def get_all_quotes():
     current_app.logger.info("Called quote/ API endpoint")
     result = QuoteService().get_all()
@@ -30,7 +13,7 @@ def get_all_quotes():
     return jsonify(result)
 
 
-@api_blueprint.route('/quote/first')
+@quote.route('/first')
 def first_quote():
     current_app.logger.info("Called quote/first API endpoint")
     result = QuoteService().get_first()
@@ -38,7 +21,7 @@ def first_quote():
     return jsonify(result)
 
 
-@api_blueprint.route('/quote/<int:id>')
+@quote.route('/<int:id>')
 def id_quote(id):
     current_app.logger.info(f"Called quote/{id} API endpoint")
     result = QuoteService().get_id(id)
@@ -46,7 +29,7 @@ def id_quote(id):
     return jsonify(result) if result else (jsonify(), 404)
 
 
-@api_blueprint.route('/quote/random')
+@quote.route('/random')
 def random_quote():
     current_app.logger.info("Called quote/random API endpoint")
     result = QuoteService().get_random()
@@ -55,7 +38,7 @@ def random_quote():
 
 
 # TODO: Need error handling
-@api_blueprint.route('/quote/<string:author>')
+@quote.route('/<string:author>')
 def author_quote(author):
     current_app.logger.info("Called quote/<author> API endpoint")
     current_app.logger.info(author)

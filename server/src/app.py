@@ -14,8 +14,11 @@ def create_app(current_config):
     from models import db
     db.init_app(app)
 
-    from api import api_blueprint
-    app.register_blueprint(api_blueprint)
+    from blueprints.quote import quote
+    app.register_blueprint(quote)
+
+    from blueprints.system import system
+    app.register_blueprint(system)
 
     return app
 
