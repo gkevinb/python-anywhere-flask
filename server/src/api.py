@@ -19,7 +19,7 @@ def hello_world():
 
 @api_blueprint.route('/health')
 def health():
-    return f"This will be the health page. {current_app.config['HOST']}, {current_app.config['HOST_MACHINE']}"
+    return f"This is the health page. {current_app.config['HOST']}, {current_app.config['HOST_MACHINE']}"
 
 
 @api_blueprint.route('/quote')

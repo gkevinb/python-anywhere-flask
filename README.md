@@ -47,6 +47,13 @@ https://help.pythonanywhere.com/pages/RebuildingVirtualenvs/
 
 https://help.pythonanywhere.com/pages/Virtualenvs/
 
+
+## Environmental Variables
+
+### Pythonanywhere
+
+https://www.pythonanywhere.com/forums/topic/14207/
+
 ## Vue JS Integration
 
 https://dev.to/michaelbukachi/flask-vue-js-integration-tutorial-2g90
