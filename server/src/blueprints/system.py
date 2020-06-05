@@ -18,4 +18,4 @@ def hello_world():
 
 @system.route('/system/health')
 def health():
-    return f"This is the health page. {current_app.config['HOST']}, {current_app.config['HOST_MACHINE']}"
+    return f"This is the health page. {current_app.config['HOST']}, {socket.gethostname()}"

@@ -1,15 +1,14 @@
-import socket
 import logging
 from flask import Flask
-from config import DevConfig, ProdConfig
 
 
-def create_app(current_config):
+def create_app():
     app = Flask(__name__)
-    app.config.from_object(current_config)
+    app.config.from_pyfile("env.py")
 
-    from flask_cors import CORS
-    CORS(app, resources={r"/quote/*": {"origins": "*"}})
+    if app.config["ENV"] == "DEV":
+        from flask_cors import CORS
+        CORS(app, resources={r"/quote/*": {"origins": "*"}})
 
     from models.model import db
     db.init_app(app)
@@ -23,14 +22,7 @@ def create_app(current_config):
     return app
 
 
-def get_config():
-    if socket.gethostname() == DevConfig.HOST_MACHINE:
-        return DevConfig.CONFIG_NAME
-    if socket.gethostname() == ProdConfig.HOST_MACHINE:
-        return ProdConfig.CONFIG_NAME
-
-
-app = create_app(get_config())
+app = create_app()
 
 
 if __name__ == '__main__':
