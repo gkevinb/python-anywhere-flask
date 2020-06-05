@@ -45,3 +45,19 @@ def author_quote(author):
     quote = Quote.query.filter_by(author=author).first()
 
     return jsonify(quote.to_json())
+
+
+@quote.route('/add')
+def add_quote():
+    current_app.logger.info("Called quote/add API endpoint")
+    result = QuoteService().add(Quote(body="Hello practice", author="Me and I", category="Myself"))
+    current_app.logger.info(f"Result: {result} API endpoint")
+    return jsonify("Success")
+
+
+@quote.route('/delete')
+def delete_quote():
+    current_app.logger.info("Called quote/delete API endpoint")
+    result = QuoteService().delete(12)
+    current_app.logger.info(f"Result: {result} API endpoint")
+    return jsonify("Success")

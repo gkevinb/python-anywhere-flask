@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "docker-compose up",
-    "build-start": "docker-compose build && docker-compose up",
+    "build-start": "docker-compose up --build",
     "stop": "docker-compose down",
     "build-client": "(cd client ; npm run build)",
     "serve-client": "(cd client ; npm run serve)",
