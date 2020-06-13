@@ -12,7 +12,8 @@
     "remove-venv": "rm -rf server/venv",
     "build-venv": "python3 -m venv server/venv",
     "install-venv": "pip install -r server/requirements.txt",
-    "rebuild-venv": "rm -rf server/venv && python3 -m venv server/venv && source server/venv/bin/activate && pip install -r server/requirements.txt && deactivate"
+    "rebuild-venv": "rm -rf server/venv && python3 -m venv server/venv && source server/venv/bin/activate && pip install -r server/requirements.txt && deactivate",
+    "serve-api": "docker run -p 80:8080 -e SWAGGER_JSON=/tmp/api.yaml -v `pwd`/api:/tmp swaggerapi/swagger-ui"
   },
   "repository": {
     "type": "git",
