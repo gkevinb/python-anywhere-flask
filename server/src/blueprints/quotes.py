@@ -11,12 +11,12 @@ def get_all_quotes():
         current_app.logger.info("Called POST quote/ API endpoint")
         content = request.json if request.json else {}
 
-        quote = content.get("quote")
+        body = content.get("body")
         author = content.get("author")
         category = content.get("category")
 
-        if quote and author and category:
-            QuoteService().add(Quote(body=quote, author=author, category=category))
+        if body and author and category:
+            QuoteService().add(Quote(body=body, author=author, category=category))
             return jsonify("Success")
         else:
             return jsonify("Invalid request body")
