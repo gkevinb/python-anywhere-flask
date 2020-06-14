@@ -8,13 +8,13 @@ def create_app():
 
     if app.config["ENV"] == "DEV":
         from flask_cors import CORS
-        CORS(app, resources={r"/quote/*": {"origins": "*"}})
+        CORS(app, resources={r"/quotes/*": {"origins": "*"}})
 
     from models.model import db
     db.init_app(app)
 
-    from blueprints.quote import quote
-    app.register_blueprint(quote)
+    from blueprints.quotes import quotes
+    app.register_blueprint(quotes)
 
     from blueprints.system import system
     app.register_blueprint(system)

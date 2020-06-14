@@ -12,7 +12,7 @@ info:
 host: "localhost:5000"
 # basePath: "/v2"
 tags:
-- name: "quote"
+- name: "quotes"
   description: "Everything about your quotes"
 - name: "user"
   description: "Operations about user"
@@ -22,10 +22,10 @@ tags:
 schemes:
 - "http"
 paths:
-  /quote:
+  /quotes:
     get:
       tags:
-      - "quote"
+      - "quotes"
       summary: "Return all quotes"
       description: ""
       operationId: "getQuotes"
@@ -34,10 +34,21 @@ paths:
       responses:
         "200":
           description: "Successful"
-  /quote/random:
+    post:
+      tags:
+      - "quotes"
+      summary: "Create new quote"
+      description: ""
+      operationId: "postQuotes"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Successful"
+  /quotes/random:
     get:
       tags:
-      - "quote"
+      - "quotes"
       summary: "Get random quote"
       description: ""
       operationId: "getRandomQuote"
