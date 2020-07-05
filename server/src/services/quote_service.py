@@ -22,7 +22,6 @@ class QuoteService:
     def get_random(self):
         quotes = self.Quote.query.all()
         i = random.randint(0, len(quotes) - 1)
-
         return quotes[i].to_dict()
 
     def add(self, quote):
@@ -31,5 +30,8 @@ class QuoteService:
 
     def delete(self, id):
         quote = self.Quote.query.get(id)
-        current_app.logger.info(f"ADD: {db.session.delete(quote)}")
-        current_app.logger.info(f"COMMIT: {db.session.commit()}")
+        current_app.logger.info(f"QUOTE: {quote}")
+        if quote:
+            db.session.delete(quote)
+            db.session.commit()
+            return quote

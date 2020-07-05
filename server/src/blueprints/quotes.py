@@ -16,30 +16,32 @@ def get_all_quotes():
         category = content.get("category")
 
         if body and author and category:
-            QuoteService().add(Quote(body=body, author=author, category=category))
-            return jsonify("Success")
+            subcategory = content.get("subcategory")
+            numeral = content.get("numeral")
+
+            QuoteService().add(Quote(body=body, author=author, category=category,
+                                     subcategory=subcategory, numeral=numeral))
+
+            return jsonify(), 201
         else:
-            return jsonify("Invalid request body")
+            return jsonify(), 400
     else:
         current_app.logger.info("Called GET quote/ API endpoint")
         result = QuoteService().get_all()
         return jsonify(result)
 
 
-@quotes.route('/first')
-def first_quote():
-    current_app.logger.info("Called quote/first API endpoint")
-    result = QuoteService().get_first()
-
-    return jsonify(result)
-
-
-@quotes.route('/<int:id>')
+@quotes.route('/<int:id>', methods=['GET', 'DELETE'])
 def id_quote(id):
-    current_app.logger.info(f"Called quote/{id} API endpoint")
-    result = QuoteService().get_id(id)
-    current_app.logger.info(f"Result: {result} API endpoint")
-    return jsonify(result) if result else (jsonify(), 404)
+    if request.method == 'DELETE':
+        current_app.logger.info("Called quote/delete API endpoint")
+        result = QuoteService().delete(id)
+        return (jsonify(), 204) if result else (jsonify(), 404)
+    else:
+        current_app.logger.info(f"Called quote/{id} API endpoint")
+        result = QuoteService().get_id(id)
+        current_app.logger.info(f"Result: {result} API endpoint")
+        return jsonify(result) if result else (jsonify(), 404)
 
 
 @quotes.route('/random')
@@ -50,19 +52,9 @@ def random_quote():
     return jsonify(result)
 
 
-# TODO: Need error handling
-@quotes.route('/<string:author>')
-def author_quote(author):
-    current_app.logger.info("Called quote/<author> API endpoint")
-    current_app.logger.info(author)
-    quote = Quote.query.filter_by(author=author).first()
-    if quote:
-        return jsonify(quote.to_dict())
+@quotes.route('/first')
+def first_quote():
+    current_app.logger.info("Called quote/first API endpoint")
+    result = QuoteService().get_first()
 
-
-@quotes.route('/delete')
-def delete_quote():
-    current_app.logger.info("Called quote/delete API endpoint")
-    result = QuoteService().delete(12)
-    current_app.logger.info(f"Result: {result} API endpoint")
-    return jsonify("Success")
+    return jsonify(result)

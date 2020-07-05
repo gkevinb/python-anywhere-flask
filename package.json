@@ -11,7 +11,7 @@
     "serve-client": "(cd client ; npm run serve)",
     "remove-venv": "rm -rf server/venv",
     "build-venv": "python3 -m venv server/venv",
-    "install-venv": "pip install -r server/requirements.txt",
+    "install-venv": "source server/venv/bin/activate && pip install -r server/requirements.txt",
     "rebuild-venv": "rm -rf server/venv && python3 -m venv server/venv && source server/venv/bin/activate && pip install -r server/requirements.txt && deactivate"
   },
   "repository": {
