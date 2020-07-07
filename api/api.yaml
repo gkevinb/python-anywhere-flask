@@ -21,7 +21,11 @@ paths:
       - "application/json"
       responses:
         "200":
-          description: "Successful"
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Quote"
     post:
       tags:
       - "quotes"
@@ -38,8 +42,40 @@ paths:
         schema:
           $ref: "#/definitions/Quote"
       responses:
+        "201":
+          description: "Created"
+  /quotes/{id}:
+    parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the quote
+    get:
+      tags:
+      - "quotes"
+      summary: "Return quote by Id"
+      description: ""
+      operationId: "getQuoteById"
+      produces:
+      - "application/json"
+      responses:
         "200":
-          description: "Successful"
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Quote"
+    delete:
+      tags:
+      - "quotes"
+      summary: "Delete quote by Id"
+      description: ""
+      operationId: "deleteQuoteById"
+      produces:
+      - "application/json"
+      responses:
+        "204":
+          description: "No content"
   /quotes/random:
     get:
       tags:
@@ -51,11 +87,9 @@ paths:
       - "application/json"
       responses:
         "200":
-          description: "successful operation"
+          description: "OK"
           schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Pet"
+            $ref: "#/definitions/Quote"
         "400":
           description: "Invalid status value"
 definitions:
@@ -66,19 +100,16 @@ definitions:
     - "author"
     - "category"
     properties:
-      # id:
-      #   type: "integer"
-      #   format: "int64"
       body:
         type: "string"
       author:
         type: "string"
       category:
         type: "string"
-      # subcategory:
-      #   type: "string"
-      # numeral:
-      #   type: "string"
+      subcategory:
+        type: "string"
+      numeral:
+        type: "string"
     xml:
       name: "Quote"
 externalDocs:
