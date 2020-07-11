@@ -23,5 +23,12 @@
   "bugs": {
     "url": "https://github.com/gkevinb/python-anywhere-flask/issues"
   },
-  "homepage": "https://gkevinb.pythonanywhere.com/"
+  "homepage": "https://gkevinb.pythonanywhere.com/",
+  "dependencies": {
+    "vue-router": "^3.3.4"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.2"
+  }
 }

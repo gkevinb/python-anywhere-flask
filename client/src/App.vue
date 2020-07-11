@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <img alt="Vue logo" src="./assets/logo.png" />
+        <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
         <HelloWorld msg="Welcome to my Vue.js/Flask App" />
     </div>
 </template>
@@ -21,13 +21,111 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    // margin-top: 60px;
+    height: 800px;
+
+
+
+    // $blue-wide: #6677c0;
+    // $blue-thin: #292c44;
+
+    $blue-wide: #485cb3;
+    $blue-thin: #1a1e44;
+
+    // $blue-wide: #5a68a5;
+    // $blue-thin: #05060e;
+
+    // $blue-wide: #5a68a5;
+    // $blue-thin: #05060e;
+
+    $size: 30px;
+
+    background-color: $blue-wide;
+    background-image: radial-gradient(
+            circle at 100% 150%,
+            $blue-wide 24%,
+            $blue-thin 24%,
+            $blue-thin 28%,
+            $blue-wide 28%,
+            $blue-wide 36%,
+            $blue-thin 36%,
+            $blue-thin 40%,
+            transparent 40%,
+            transparent
+        ),
+        radial-gradient(
+            circle at 0 150%,
+            $blue-wide 24%,
+            $blue-thin 24%,
+            $blue-thin 28%,
+            $blue-wide 28%,
+            $blue-wide 36%,
+            $blue-thin 36%,
+            $blue-thin 40%,
+            transparent 40%,
+            transparent
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            $blue-thin 10%,
+            $blue-wide 10%,
+            $blue-wide 23%,
+            $blue-thin 23%,
+            $blue-thin 30%,
+            $blue-wide 30%,
+            $blue-wide 43%,
+            $blue-thin 43%,
+            $blue-thin 50%,
+            $blue-wide 50%,
+            $blue-wide 63%,
+            $blue-thin 63%,
+            $blue-thin 71%,
+            transparent 71%,
+            transparent
+        ),
+        radial-gradient(
+            circle at 100% 50%,
+            $blue-thin 5%,
+            $blue-wide 5%,
+            $blue-wide 15%,
+            $blue-thin 15%,
+            $blue-thin 20%,
+            $blue-wide 20%,
+            $blue-wide 29%,
+            $blue-thin 29%,
+            $blue-thin 34%,
+            $blue-wide 34%,
+            $blue-wide 44%,
+            $blue-thin 44%,
+            $blue-thin 49%,
+            transparent 49%,
+            transparent
+        ),
+        radial-gradient(
+            circle at 0 50%,
+            $blue-thin 5%,
+            $blue-wide 5%,
+            $blue-wide 15%,
+            $blue-thin 15%,
+            $blue-thin 20%,
+            $blue-wide 20%,
+            $blue-wide 29%,
+            $blue-thin 29%,
+            $blue-thin 34%,
+            $blue-wide 34%,
+            $blue-wide 44%,
+            $blue-thin 44%,
+            $blue-thin 49%,
+            transparent 49%,
+            transparent
+        );
+    background-size: 2 * $size $size;
 }
 </style>
