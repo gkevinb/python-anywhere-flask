@@ -22,5 +22,8 @@ insert into quote (body, author, category, subcategory, numeral) value ("What li
 insert into quote (body, author, category, subcategory, numeral) value ("Victory is in having done your best. If you’ve done your best, you’ve won.", "Bill Bowerman", "Historical", null, null);
 insert into quote (body, author, category, subcategory, numeral) value ("The fear of death follows from the fear of life. One who lives life fully is prepared to die at any time.", "Mark Twain", "Historical", null, null);
 
+insert into quote (body, author, category, subcategory, numeral) value ("Life happens wherever you are, whether you make it or not.", "Uncle Iroh", "Avatar", null, null);
+insert into quote (body, author, category, subcategory, numeral) value ("In the darkest times, hope is something you give yourself. That is the meaning of inner strength.", "Uncle Iroh", "Avatar", null, null);
+
 
 select * from quote;

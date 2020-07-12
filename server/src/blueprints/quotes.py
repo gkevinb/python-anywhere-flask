@@ -1,3 +1,4 @@
+import random
 from flask import Blueprint, current_app, jsonify, request
 from models.model import Quote
 from services.quote_service import QuoteService
@@ -42,6 +43,23 @@ def id_quote(id):
         result = QuoteService().get_id(id)
         current_app.logger.info(f"Result: {result} API endpoint")
         return jsonify(result) if result else (jsonify(), 404)
+
+
+@quotes.route('/iroh')
+def iroh_quotes():
+    current_app.logger.info("Called quote/iroh API endpoint")
+    result = QuoteService().filter_by_author("Uncle Iroh")
+    current_app.logger.info(f"Result: {result} API endpoint")
+    return jsonify(result)
+
+
+@quotes.route('/iroh/random')
+def random_iroh_quote():
+    current_app.logger.info("Called quote/iroh/random API endpoint")
+    result = QuoteService().filter_by_author("Uncle Iroh")
+    current_app.logger.info(f"Result: {result} API endpoint")
+    i = random.randint(0, len(result) - 1)
+    return jsonify(result[i])
 
 
 @quotes.route('/random')

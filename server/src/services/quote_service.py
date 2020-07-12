@@ -19,6 +19,10 @@ class QuoteService:
         if quote:
             return quote.to_dict()
 
+    def filter_by_author(self, author):
+        quotes = self.Quote.query.filter_by(author=author)
+        return [quote.to_dict() for quote in quotes]
+
     def get_random(self):
         quotes = self.Quote.query.all()
         i = random.randint(0, len(quotes) - 1)

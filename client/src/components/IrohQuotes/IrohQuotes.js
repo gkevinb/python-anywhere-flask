@@ -19,7 +19,7 @@ export default {
             baseURL: process.env.VUE_APP_BACKEND_HOST
         });
         /* Note: GET is hardcoded, for now, since it is the only type of request made */
-        API.get("quotes/random").then(response => {
+        API.get("quotes/iroh/random").then(response => {
             this.quote = response.data;
         });
     },
