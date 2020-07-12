@@ -1,0 +1,14 @@
+<div class="flashcard__scene">
+    <div id="quote-card" class="flashcard" @click="flipFlashcard">
+        <div class="flashcard__face flashcard__face--front">
+            <div class="symbol-container">
+                <i class="symbol" v-html="element"></i>
+            </div>
+        </div>
+        <div class="flashcard__face flashcard__face--back">
+            <img id="lotus-tile" src="../../assets/img/lotus_tile.png"/>
+            <p id="quote-text">"{{ quote.body }}"</p>
+            <p id="quote-author">{{ quote.author }}</p>
+        </div>
+    </div>
+</div>

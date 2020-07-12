@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+
+@mixin flashcard-scene($width, $height, $perspective) {
+    width: $width;
+    height: $height;
+    perspective: $perspective;
+    margin: 40px auto;
+}
+
+@mixin flashcard {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+/* Rotate along Y-axis and support all browsers */
+@mixin rotateY-axis($degrees) {
+    transform: rotateY($degrees);
+    -ms-transform: rotateY($degrees);
+    -webkit-transform: rotateY($degrees);
+    -moz-transform: rotateY($degrees);
+    -o-transform: rotateY($degrees);
+}
+
+/* Rotate along X-axis and support all browsers */
+@mixin rotateX-axis($degrees) {
+    transform: rotateX($degrees);
+    -ms-transform: rotateX($degrees);
+    -webkit-transform: rotateX($degrees);
+    -moz-transform: rotateX($degrees);
+    -o-transform: rotateX($degrees);
+}
+
+/* Rotate along X-axis and support all browsers */
+@mixin rotateZ-axis($degrees) {
+    transform: rotateZ($degrees);
+    -ms-transform: rotateZ($degrees);
+    -webkit-transform: rotateZ($degrees);
+    -moz-transform: rotateZ($degrees);
+    -o-transform: rotateZ($degrees);
+}
+
+@mixin rotate3D($x, $y, $z, $degrees) {
+    transform: rotate3d($x, $y, $z, $degrees);
+    -ms-transform: rotate3d($x, $y, $z, $degrees);
+    -webkit-transform: rotate3d($x, $y, $z, $degrees);
+    -moz-transform: rotate3d($x, $y, $z, $degrees);
+    -o-transform: rotate3d($x, $y, $z, $degrees);
+}
+
+/* Hide the back face of the card when turned around, need for safari support */
+@mixin backfaceVisibility() {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+$rotate-degrees: 180deg;
+$card-color: #c4a67a;
+// $card-color: #e7cda7;
+
+$text-margin: 18.5px;
+$card-size: 400px;
+$perspective: 600px;
+
+.flashcard__scene {
+    @include flashcard-scene(260px, $card-size, $perspective);
+
+    .flashcard {
+        @include flashcard();
+    }
+
+    .flashcard.is-flipped {
+        @include rotateY-axis($rotate-degrees);
+    }
+
+    .flashcard__face {
+        background-color: $card-color;
+        border-radius: 10px;
+        border: 2px solid black;
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .flashcard__face--front {
+        @include backfaceVisibility();
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .symbol-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            background-color: #4f1010;
+            width: 180px;
+            height: 180px;
+        }
+        .symbol svg {
+            margin-top: 6px;
+            fill: #a43939;
+            width: 150px;
+        }
+    }
+
+    .flashcard__face--back {
+        @include rotateY-axis($rotate-degrees);
+        @include backfaceVisibility();
+
+        background-color: rgb(141, 38, 38);
+        // background-color: rgb(184, 46, 46);
+
+        text-align: center;
+        font-size: 18px;
+        font-family: "Handlee";
+        color: white;
+
+        #lotus-tile{
+            margin-top: 25px;
+            width: 80px;
+        }
+
+        #quote-text{
+            margin: 20px auto;
+            width: 200px;
+        }
+    }
+}
+
+.hello {
+    color: white;
+}
+
+h3 {
+    margin: 40px 0 0;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    display: inline-block;
+    margin: 0 10px;
+}
+a {
+    color: #42b983;
+}
