@@ -19,17 +19,12 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: 'db'
-      # So you don't have to use root, but you can if you like
-      MYSQL_USER: 'root'
-      # You can use whatever password you like
-      MYSQL_PASSWORD: 'admin'
-      # Password for root access
-      MYSQL_ROOT_PASSWORD: 'admin'
+      MYSQL_USER: 'root' # So you don't have to use root, but you can if you like
+      MYSQL_PASSWORD: 'admin' # You can use whatever password you like
+      MYSQL_ROOT_PASSWORD: 'admin' # Password for root access
     ports:
-      # <Port exposed> : < MySQL Port running inside container>
-      - '3306:3306'
-      # Where our data will be persisted
-    volumes:
+      - '3306:3306' # <Port exposed> : < MySQL Port running inside container>
+    volumes: # Where our data will be persisted
       - my-db:/var/lib/mysql
   swagger: #docker run -p 80:8080 -e SWAGGER_JSON=/tmp/api.yaml -v `pwd`/api:/tmp swaggerapi/swagger-ui
     image: swaggerapi/swagger-ui
