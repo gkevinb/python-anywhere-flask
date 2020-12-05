@@ -114,6 +114,12 @@ https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-ap
 
 https://riptutorial.com/sqlalchemy/example/6614/converting-a-query-result-to-dict
 
+## Deploying and Git
+
+https://stackoverflow.com/questions/48047123/syncing-github-with-pythonanywhere
+
+https://medium.com/@aadibajpai/deploying-to-pythonanywhere-via-github-6f967956e664
+
 ## Testing
 
 https://medium.com/swlh/automate-python-testing-with-github-actions-7926b5d8a865
