@@ -4,14 +4,14 @@ __pycache__
 server/venv
 
 # env files
-.env
-.env.development
-.env.production
-env.py
+# .env
+# .env.development
+# .env.production
+# env.py
 
-# local env files
-.env.local
-.env.*.local
+# # local env files
+# .env.local
+# .env.*.local
 
 # Log files
 npm-debug.log*
