@@ -97,8 +97,6 @@ For example.
 source mysite/sql-scripts/create_quotes.sql
 ```
 
-
-
 Look into way of running not just individual commands but entire scripts after getting better at SQL.
 
 https://peewee.readthedocs.io/en/latest/index.html
